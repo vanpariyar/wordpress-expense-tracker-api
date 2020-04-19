@@ -79,4 +79,27 @@ function WPETA_customizer(){
     );
     register_taxonomy( 'expense-category', array( 'expenses' ), $args );
     // End expense category register
+
+
+    /**
+     *  Customize Admin Coloumn
+     */
+    add_filter( 'manage_expenses_posts_columns', 'WPETA_customize_coloumns' );
+    function WPETA_customize_coloumns( $columns ) {
+    $columns['amount'] = __( 'Amount', 'WPETA' );
+    return $columns;
+    }
+
+    /**
+     * Manage custom coloumn
+     */
+    add_action( 'manage_expenses_posts_custom_column', 'WPETA_transaction_coloumn', 10, 2);
+    function WPETA_transaction_coloumn( $column, $post_id ) {
+    // Image column
+        switch($column){
+            case 'amount':
+                echo(get_post_meta($post_id, 'amount', true));
+            break;
+        }
+    }
 }

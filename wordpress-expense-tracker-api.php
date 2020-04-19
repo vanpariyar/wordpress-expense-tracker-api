@@ -41,6 +41,14 @@ define( 'WPETA_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WPETA_PLUGIN_URL', plugins_url( __FILE__ ) );
 
 require_once( WPETA_PLUGIN_DIR . 'includes/plugin_helpers.php');
+
+/**
+ *  TODO :: Remove the WP-basic Auth Plugin From Code.
+ * 
+ */
+require_once( WPETA_PLUGIN_DIR . 'api/basic-auth.php');
+
+
 require_once( WPETA_PLUGIN_DIR . 'api/routes/transactions.php');
 
 // add_action( 'the_content', function(){
