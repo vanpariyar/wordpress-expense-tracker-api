@@ -1,7 +1,7 @@
 # wordpress-expense-tracker-api
 The plugin for the Expense manager WordPress Rest API.
 
-Api For Expense Tracker WordPress Plugin.
+You can Use For Your Exsisting Wordpress Site.
 
 1. Added Basic Auth
 2. Docker Compose Setup ` sudo docker-compose up ` goto for site `http://localhost:8080/` activate Plugin.
