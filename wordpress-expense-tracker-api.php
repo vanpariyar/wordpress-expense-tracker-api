@@ -50,6 +50,8 @@ require_once( WPETA_PLUGIN_DIR . 'api/basic-auth.php');
 
 
 require_once( WPETA_PLUGIN_DIR . 'api/routes/transactions.php');
+require_once( WPETA_PLUGIN_DIR . 'api/routes/transaction_category.php');
+
 
 // add_action( 'the_content', function(){
 //     echo get_post_meta( get_the_ID( ) , 'track', true );

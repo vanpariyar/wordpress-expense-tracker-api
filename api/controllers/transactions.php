@@ -32,7 +32,11 @@ function WPETA_get_transactions( $req ) {
 
         $json = array(
             'success' => true,
-            'data'    => $request_query,
+            'data'    => array(
+                'transaction'  => $request_query,
+                'Total Income' => WPETA_get_expense('income'),
+            ),
+
         );
         $response = new WP_REST_Response($json);
         $response->set_status(200);
@@ -67,12 +71,13 @@ function WPETA_get_transactions( $req ) {
             'required' => true,
             'type'     => 'number',
         ),
-        'category_id' => array(
+        'category_slug' => array(
             'required' => true,
-            'type'     => 'number',
+            'type'     => 'string',
         ),
     );
 
+    $expense_category = 'expense-category';
 
     $data = array();
     $error['message'] = false;
@@ -105,6 +110,7 @@ function WPETA_get_transactions( $req ) {
 
     if($inserted_post = wp_insert_post( $args )){
         update_post_meta( $inserted_post, 'amount', $data['amount'] );
+        wp_set_post_terms( $inserted_post, [$data['category_slug']], $expense_category, false );
 
     } else {
         $error['message'] = __('Transaction Not Added', 'WPETA');
