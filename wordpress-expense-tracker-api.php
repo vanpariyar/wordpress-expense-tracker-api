@@ -6,7 +6,7 @@
 Plugin Name: Wordpress Expense Tracker API
 Plugin URI: https://github.com/vanpariyar/wordpress-expense-tracker-api
 Description: This is the Plugin to Generate the Expnense Module, Wordpress Expense Tracker API is.
-Version: 4.1.4
+Version: 1.0.0
 Author: vanpariyar
 Author URI: https://github.com/vanpariyar 
 License: GPLv2 or later

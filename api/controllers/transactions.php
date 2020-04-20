@@ -23,7 +23,8 @@ function WPETA_get_transactions( $req ) {
         $data = array();
 
         foreach ($request_query as $key => $post) {
-            $request_query[$key]->amount = get_post_meta( $post->ID, amount, true );
+            $request_query[$key]->amount   = get_post_meta( $post->ID, amount, true );
+            $request_query[$key]->category = ( get_the_terms( $post->ID, 'expense-category' ) )[0];
         }
 
         $json = array(
@@ -134,6 +135,8 @@ function WPETA_get_transactions( $req ) {
 
 function WPETA_get_single_transaction( $req ){
     $post = get_post( $req['id'] );
+    $post->amount   = get_post_meta( $post->ID, amount, true );
+    $post->category = ( get_the_terms( $post->ID, 'expense-category' ) )[0];
     if( $post ){
         $json = array(
             'success' => true,
