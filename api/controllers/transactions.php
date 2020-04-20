@@ -7,6 +7,9 @@
   *  @method GET
   *  @desc For Route expenses/api/v1/transactions'
   */
+
+require_once( WPETA_PLUGIN_DIR . 'api/utils/transaction_helpers.php');
+  
 function WPETA_get_transactions( $req ) {
     
     /**
